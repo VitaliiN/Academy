@@ -21,8 +21,7 @@ namespace MyCalc
             FirstArg = firstOperator;
             SecondArg = secondOperator;
             Result = (FirstArg + SecondArg).ToString();
-            Out.Out(Result);
-
+           
         }
 
         public void Substract(int firstOperator, int secondOperator)
@@ -30,7 +29,7 @@ namespace MyCalc
             FirstArg = firstOperator;
             SecondArg = secondOperator;
             Result = (FirstArg - SecondArg).ToString();
-            Out.Out(Result);
+            
             
         }
 
@@ -39,7 +38,7 @@ namespace MyCalc
             FirstArg = firstOperator;
             SecondArg = secondOperator;
             Result = (FirstArg * SecondArg).ToString();
-            Out.Out(Result);
+           
 
         }
 
@@ -48,8 +47,13 @@ namespace MyCalc
             FirstArg = firstOperator;
             SecondArg = secondOperator;
             Result = (FirstArg/SecondArg).ToString();
-            Out.Out(Result);
+            
               
+        }
+
+        public void Print()
+        {
+            Out.Out(Result);
         }
 
        

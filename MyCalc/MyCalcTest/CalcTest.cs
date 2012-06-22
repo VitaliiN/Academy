@@ -14,19 +14,34 @@ namespace MyCalcTest
     [TestFixture]
     public class CalcTest
     {
-        [Test]
-        public void Should_Return7_WhenAdding3to4()
+
+        public void Should_Out4_WhenDivide12And3()
         {
             //arrange
             var calc = new Calc();
             var outer = new Mock<IOut>();
             calc.Out = outer.Object;
+
+            //act
+            calc.Divide(12, 3);
+            calc.Print();
+
+            //assert
+            outer.Verify(it => it.Out("4"));
+        }
+
+        [Test]
+        public void Should_Return7_WhenAdding3to4()
+        {
+            //arrange
+            var calc = new Calc();
             
             //act 
             calc.Add(3, 4);
 
             //assert
             Assert.That(calc.Result,Is.EqualTo("7"));
+            
 
         }
 
@@ -35,9 +50,7 @@ namespace MyCalcTest
     {
         //arrange
         var calc = new Calc();
-        var outer = new Mock<IOut>();
-        calc.Out = outer.Object;
-
+ 
         //act
         calc.Substract(5, 3);
 
@@ -49,8 +62,6 @@ namespace MyCalcTest
         {
             //arrange
             var calc = new Calc();
-            var outer = new Mock<IOut>();
-            calc.Out = outer.Object;
 
             //act
             calc.Multiply(3, 5);
@@ -65,8 +76,6 @@ namespace MyCalcTest
         {
             //arrange
             var calc = new Calc();
-            var outer = new Mock<IOut>();
-            calc.Out = outer.Object;
 
             //act
             calc.Divide(12, 3);
@@ -80,8 +89,6 @@ namespace MyCalcTest
         {
             //arrange
             var calc = new Calc();
-            var outer = new Mock<IOut>();
-            calc.Out = outer.Object;
 
             //act
             calc.Divide(12, 0);
@@ -90,6 +97,7 @@ namespace MyCalcTest
             Assert.That(calc.Result, Is.EqualTo(float.PositiveInfinity.ToString()));
 
         }
+
         
     }
 }
